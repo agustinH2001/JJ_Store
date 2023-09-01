@@ -16,6 +16,20 @@
             $cat = $row["productoCat"];
         }
     }
+
+    if(isset($_POST["update"])){
+        $id = $_GET["productoID"];
+        $nombre = $_POST["producto"];
+        $desc = $_POST["descripcion"];
+        $stock = $_POST["stock"];
+        $precio = $_POST["precio"];
+        $url = $_POST["URL"];
+        $cat= $_POST["categoria"];
+
+        $query = "UPDATE productos set productoNombre='$nombre',productoDesc='$desc',productoStock='$stock',productoPrecio='$precio',productoURL='$url',productoCat='$cat' WHERE productoID=$id";
+        mysqli_query($conn, $query);
+        header("Location: index.php");
+    }
 ?>
 
 <?php include("includes/header.php") ?>
@@ -28,7 +42,7 @@ h1 {text-align: center;}
         <div class="row">
             <div class="col-md-4 mx-auto">  
                 <div class="card card-body">
-                    <form action="">
+                    <form action="edit_producto.php?productoID=<?php echo $_GET['productoID']?>" method="POST">
                         <div class="form-group">
                             <b>Nombre producto:</b><input type="text" name="producto" value="<?php echo $nombre?>" class="form-control">
                         </div>
@@ -58,7 +72,7 @@ h1 {text-align: center;}
                         </select>
                         </div>
                         <p></p>
-                        <input type="submit" class="btn btn-success btn-block" name="save_producto" value="Guardar cambios"></input>
+                        <input type="submit" class="btn btn-success btn-block" name="update" value="Guardar cambios"></input>
                     </form>
                 </div>
             </div>
