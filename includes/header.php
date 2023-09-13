@@ -8,8 +8,20 @@
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-        <a href="index.php" class="navbar-brand">JJ Store</a>
-    </div>
-</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.php">
+                JJ Store
+            </a>
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-left mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="crud.php">Productos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>

@@ -1,5 +1,5 @@
 <?php
-    include("db.php");
+    include("../db.php");
 
     if(isset($_GET['productoID'])) {
         $id = $_GET['productoID'];
@@ -28,11 +28,11 @@
 
         $query = "UPDATE productos set productoNombre='$nombre',productoDesc='$desc',productoStock='$stock',productoPrecio='$precio',productoURL='$url',productoCat='$cat' WHERE productoID=$id";
         mysqli_query($conn, $query);
-        header("Location: index.php");
+        header("Location: ../crud.php");
     }
 ?>
 
-<?php include("includes/header.php") ?>
+<?php include("../includes/header.php") ?>
 <style>
 h1 {text-align: center;}
 </style>
@@ -79,4 +79,4 @@ h1 {text-align: center;}
         </div>
     </div>
 
-<?php include("includes/footer.php") ?>
+<?php include("../includes/footer.php") ?>
