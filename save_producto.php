@@ -20,7 +20,7 @@ if(isset($_POST["save_producto"])){
     $_SESSION["message"] = "Producto añadido con éxito";
     $_SESSION["message_type"] = "success";
 
-    header("Location: index.php");
+    header("Location: crud.php");
 }
 
 ?>
