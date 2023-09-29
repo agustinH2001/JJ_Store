@@ -1,6 +1,6 @@
 <?php
 
-    include("../db.php");
+    include("db.php");
 
     if(isset($_GET['productoID'])) {
         $id = $_GET['productoID'];
@@ -12,7 +12,7 @@
 
         $_SESSION["message"] = "Producto eliminado con éxito";
         $_SESSION["message_type"] = "danger";
-        header("Location: ../crud.php");
+        header("Location: index.php");
     }
 
 ?>

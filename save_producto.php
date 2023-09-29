@@ -1,6 +1,6 @@
 <?php
 
-include("../db.php");
+include("db.php");
 
 if(isset($_POST["save_producto"])){
     $productoNombre = $_POST["producto"];
@@ -20,7 +20,7 @@ if(isset($_POST["save_producto"])){
     $_SESSION["message"] = "Producto añadido con éxito";
     $_SESSION["message_type"] = "success";
 
-    header("Location: ../crud.php");
+    header("Location: index.php");
 }
 
 ?>

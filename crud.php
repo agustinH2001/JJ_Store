@@ -13,7 +13,7 @@
                 <?php session_unset(); } ?>
 
             <div class="card card-body">
-                <form action="modules/save_producto.php" method="POST">
+                <form action="save_producto.php" method="POST">
                     <div class="form-group">
                         <input type="text" name="producto" class="form-control" placeholder="Nombre del producto" autofocus>
                     </div>
@@ -74,8 +74,8 @@
                                 <td><?php echo $row["productoURL"] ?></td>
                                 <td><?php echo $row["productoCat"] ?></td>
                                 <td>
-                                    <a href="modules/edit_producto.php?productoID=<?php echo $row['productoID']?>">(Editar)</a>
-                                    <a href="modules/delete_producto.php?productoID=<?php echo $row['productoID']?>">(Eliminar)</a>
+                                    <a href="edit_producto.php?productoID=<?php echo $row['productoID']?>">(Editar)</a>
+                                    <a href="delete_producto.php?productoID=<?php echo $row['productoID']?>">(Eliminar)</a>
                                 </td>
                             </tr>
                         <?php } ?>
