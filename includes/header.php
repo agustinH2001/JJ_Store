@@ -39,9 +39,12 @@ session_start();
         <li class="nav-item d-none d-sm-inline-block">
             <a href="home.php" class="nav-link">Inicio</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="crud.php" class="nav-link">CRUD</a>
-        </li>
+        <?php if (isset($_SESSION["nombre-usuario"])) {
+            if ($_SESSION["nombre-usuario"] === "ADMIN" && $_SESSION["email-usuario"] === "admin@jjstore.com") { ?>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="crud.php" class="nav-link">CRUD</a>
+            </li>  
+        <?php }} ?>
     </ul>
 
     <!-- Right navbar links -->

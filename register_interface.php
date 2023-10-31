@@ -103,7 +103,7 @@ $(function () {
             // Si la autenticación es exitosa, redirige al usuario
             window.location.href = "http://localhost/JJ_Store/login_interface.php";
           } else {
-            alert("Error de autenticación. Verifique sus credenciales. " + data.success + " ---- " + data.message);
+            alert("Error de autenticación. " + data.message);
           }
         })
         .catch((error) => {

@@ -43,7 +43,7 @@ if (isset($data->email) && isset($data->password)) {
         echo json_encode(["success" => true]);
     } else {
         // Las credenciales son incorrectas, envía una respuesta JSON de error
-        echo json_encode(["success" => false, "message" => "num row nada".$sql]);
+        echo json_encode(["success" => false, "message" => "Datos incorrectos o inexistentes."]);
     }
 
     $conn->close();

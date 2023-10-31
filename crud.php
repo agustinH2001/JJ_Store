@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!(isset($_SESSION["nombre-usuario"]) && $_SESSION["nombre-usuario"] === "ADMIN" && $_SESSION["email-usuario"] === "admin@jjstore.com")) {
+    header("Location: home.php");
+    exit; // Asegurarse de salir después de redirigir
+}
+?>
 <?php include("db.php") ?>
 <?php include("includes/header.php") ?>
 
