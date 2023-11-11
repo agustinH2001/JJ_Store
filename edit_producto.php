@@ -28,7 +28,7 @@
 
         $query = "UPDATE productos set productoNombre='$nombre',productoDesc='$desc',productoStock='$stock',productoPrecio='$precio',productoURL='$url',productoCat='$cat' WHERE productoID=$id";
         mysqli_query($conn, $query);
-        header("Location: crud.php");
+        header("Location: index.php");
     }
 ?>
 

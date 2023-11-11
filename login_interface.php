@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition login-page">
-<a href="home.php" class="volver-link"> Volver </a>
+
 <div class="login-box">
   <div class="login-logo">
     <a href="./login_interface.php"><b>Iniciar Sesión</b></a>
@@ -95,7 +95,7 @@ $(function () {
             // Si la autenticación es exitosa, redirige al usuario
             window.location.href = "http://localhost/JJ_Store/home.php";
           } else {
-            alert("Error de autenticación. Verifique sus credenciales. " + data.success + " ---- " + data.message);
+            alert("Error de autenticación. " + data.message);
           }
         })
         .catch((error) => {
@@ -142,11 +142,3 @@ $(function () {
 </script>
 </body>
 </html>
-<style>
-  .volver-link {
-    position: absolute;
-    top: 60px;
-    left: 60px;
-    color: #007bff;
-  }
-</style>

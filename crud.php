@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!(isset($_SESSION["nombre-usuario"]) && $_SESSION["nombre-usuario"] === "ADMIN" && $_SESSION["email-usuario"] === "admin@jjstore.com")) {
+    header("Location: home.php");
+    exit; // Asegurarse de salir después de redirigir
+}
+?>
 <?php include("db.php") ?>
 <?php include("includes/header.php") ?>
 
@@ -86,68 +94,4 @@
 </div>
 
 <?php include("includes/footer.php") ?>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.querySelector("form");
-        const productoInput = document.querySelector('input[name="producto"]');
-        const descripcionTextarea = document.querySelector('textarea[name="descripcion"]');
-        const stockInput = document.querySelector('input[name="stock"]');
-        const precioInput = document.querySelector('input[name="precio"]');
-        const categoriaSelect = document.querySelector('select[name="categoria"]');
-
-        form.addEventListener("submit", function (event) {
-            let isValid = true;
-
-            
-            // Validar que el campo "producto" no esté vacío
-            if (productoInput.value.trim() === "") {
-                alert("Por favor, ingrese un nombre de producto.");
-                productoInput.focus();
-                isValid = false;
-            }
-
-            if (isValid != false) {
-				// Validar que el campo "descripcion" no esté vacío
-				if (descripcionTextarea.value.trim() === "") {
-					alert("Por favor, ingrese una descripción del producto.");
-					descripcionTextarea.focus();
-					isValid = false;
-				}
-			}
-
-            if (isValid != false) {
-				// Validar que el campo "stock" sea un número válido
-				if (isNaN(stockInput.value) || stockInput.value <= 0) {
-					alert("Por favor, ingrese un valor válido para el stock.");
-					stockInput.focus();
-					isValid = false;
-				}
-			}
-
-			if (isValid != false) {
-				// Validar que el campo "precio" sea un número válido
-				if (isNaN(precioInput.value) || precioInput.value <= 0) {
-					alert("Por favor, ingrese un valor válido para el precio.");
-					precioInput.focus();
-					isValid = false;
-				}
-			}
-
-			if (isValid != false) {
-				
-				// Validar que se haya seleccionado una categoría
-				if (categoriaSelect.value === "Categoría del producto") {
-					alert("Por favor, seleccione una categoría del producto.");
-					categoriaSelect.focus();
-					isValid = false;
-				}
-			}
-
-            if (!isValid) {
-                event.preventDefault(); // Evitar que el formulario se envíe si no es válido
-            }
-        });
-    });
-</script>
 

@@ -12,7 +12,7 @@
 
         $_SESSION["message"] = "Producto eliminado con éxito";
         $_SESSION["message_type"] = "danger";
-        header("Location: crud.php");
+        header("Location: index.php");
     }
 
 ?>

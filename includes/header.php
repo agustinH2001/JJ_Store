@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <?php
 session_start();
-
-if (isset($_GET["logout"]) && $_GET["logout"] === "true") {
-    // Destruir la sesión
-    session_destroy();
-    // Redirigir a la página de inicio o a donde desees
-    header("Location: home.php");
-    exit; // Asegurarse de salir después de redirigir
-}
-
 ?>
 
 <html lang="en">
@@ -48,25 +39,22 @@ if (isset($_GET["logout"]) && $_GET["logout"] === "true") {
         <li class="nav-item d-none d-sm-inline-block">
             <a href="home.php" class="nav-link">Inicio</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="crud.php" class="nav-link">CRUD</a>
-        </li>
+        <?php if (isset($_SESSION["nombre-usuario"])) {
+            if ($_SESSION["nombre-usuario"] === "ADMIN" && $_SESSION["email-usuario"] === "admin@jjstore.com") { ?>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="crud.php" class="nav-link">CRUD</a>
+            </li>  
+        <?php }} ?>
     </ul>
 
     <!-- Right navbar links -->
-<ul class="navbar-nav ml-auto">
-    <!-- Messages Dropdown Menu -->
-    <?php if (isset($_SESSION["nombre-usuario"])) { ?>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="home.php?logout=true" class="nav-link">Logout</a>
-        </li>
-    <?php } else { ?>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="login_interface.php" class="nav-link">Login</a>
-        </li>
-    <?php } ?>
-</ul>
-
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="login_interface.php" class="nav-link">Login</a>
+      </li>
+    </ul>
+  
   </nav>
 
     <!-- Main Sidebar Container -->
@@ -82,16 +70,10 @@ if (isset($_GET["logout"]) && $_GET["logout"] === "true") {
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="images\default-user-image.png" class="img-circle elevation-2" alt="User Image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php
-        if (isset($_SESSION["nombre-usuario"])) {
-            echo $_SESSION["nombre-usuario"];
-        } else {
-            echo "Bienvenido";
-        }
-        ?></a>
+          <a href="#" class="d-block"><?php echo $_SESSION["nombre-usuario"]?></a>
         </div>
       </div>
 

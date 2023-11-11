@@ -36,12 +36,12 @@ if (isset($data->username) && isset($data->email) && isset($data->password)) {
         }
     } else {
         // El correo ya está registrado, envía una respuesta JSON de error
-        echo json_encode(["success" => false, "message" => "El correo ya está registrado"]);
+        echo json_encode(["success" => false, "message" => "El correo ya está registrado."]);
     }
 
     $conn->close();
 } else {
     // Si no se proporcionan datos válidos, envía una respuesta JSON de error
-    echo json_encode(["success" => false, "message" => "Datos de entrada no válidos"]);
+    echo json_encode(["success" => false, "message" => "Datos de entrada no válidos."]);
 }
 ?>
